@@ -1,6 +1,6 @@
 <nav class="navbar">
     <div class="nav-left">
-    <a href="#home" class="nav-link">HOME</a>
+        <a href="#home" class="nav-link">HOME</a>
         <a href="#location" class="nav-link">LOCATION</a>
     </div>
     <div class="nav-center">
@@ -8,11 +8,11 @@
     </div>
     @if(Auth::check())
         <div class="nav-rights">
-            <a href="#" class="nav-link">ORDER STATUS</a>
-            {{-- <a href="#" class="nav-link">{{ $user->detailed_address }}</a> --}}
+            <a href="{{ route('user.order_status') }}" class="nav-link">ORDER STATUS</a>
+            <a href="#" class="nav-link">{{ $user->username }}</a>
             <a href="{{ route('logout') }}" class="nav-link">LOGOUT</a>
-            <a href="#" class="nav-link"><img src="{{ asset('assets/logo/cart.png') }}" alt="Bakery Logo" class="logo-right"></a>
-            <a href="#" class="nav-link"><img src="{{ asset('assets/logo/profile.png') }}" alt="Bakery Logo" class="logo-right"></a>
+            <a href="{{ route('user.cart') }}" class="nav-link"><img src="{{ asset('assets/logo/cart.png') }}" alt="Cart Logo" class="logo-right"></a>
+            <a href="#" class="nav-link"><img src="{{ asset('assets/logo/profile.png') }}" alt="Profile Logo" class="logo-right"></a>
         </div>
     @else
         <div class="nav-right">
@@ -81,7 +81,7 @@
                         <label for="signUpAddres" class="form-label">Addres</label>
                         <div class="d-flex gap-2">
                             <select name="address" id="signUpAddresKota" class="form-select">
-                                <option selected>Pilih Kota</option>
+                                <option selected>Choose City</option>
                                 <option value="Jakarta Utara">Jakarta Utara</option>
                                 <option value="Jakarta Timur">Jakarta Timur</option>
                                 <option value="Jakarta Barat">Jakarta Barat</option>

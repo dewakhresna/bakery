@@ -32,37 +32,58 @@
   <a href="#" class="btn btn3" role="button" data-bs-toggle="button">Cheesecakes</a>
 </div>
 
-{{-- <div class="row row-cols-1 row-cols-md-3 g-4 mt-3 mb-5">
-    <div class="col">
-      <div class="card" style="height: 25rem;">
-        <img src="{{ asset('assets/product/sea(22).png')}}" alt="tes">
-      </div>
-      <div class="mt-2 ml-5">
-        <h5 class="card-title">Produk 1</h5>
-        <p class="card-text">Rp40.000</p>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="{{ asset('assets/product/sea(22).png')}}" class="card-img-top" alt="tes">
+<h2 class="mt-3">Cheese Cakes</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  @foreach ($cupcakes as $cupcake)
+  <div class="col">
+    <a href="{{ route('user.add_cart', ['id' => $cupcake->id])}}" class="link-product">
+      <div class="card">
+        <img src="{{ asset('assets/product/' . $cupcake->product_image)}}" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Produk 1</h5>
-          <p class="card-text">Rp40.000</p>
+          <h5 class="card-title">{{ $cupcake->product_name }}</h5>
+          <p class="card-text">Rp{{ number_format($cupcake->price, 0, ',', '.')}}</p>
         </div>
       </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="{{ asset('assets/product/sea(22).png')}}" class="card-img-top" alt="tes">
+    </a>
+  </div>
+  @endforeach
+</div>
+
+<h2 class="mt-3">Cookies</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  @foreach ($cookies as $cookie)
+  <div class="col">
+    <a href="{{ route('user.add_cart', ['id' => $cookie->id])}}" class="link-product">
+      <div class="card">
+        <img src="{{ asset('assets/product/' . $cookie->product_image)}}" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Produk 1</h5>
-          <p class="card-text">Rp40.000</p>
+          <h5 class="card-title">{{ $cookie->product_name }}</h5>
+          <p class="card-text">Rp{{ number_format($cookie->price, 0, ',', '.')}}</p>
         </div>
       </div>
-    </div>
-</div> --}}
+    </a>
+  </div>
+  @endforeach
+</div>
 
 <h2 class="mt-3">Cheese Cakes</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  @foreach ($cheesecakes as $cheesecake)
+  <div class="col">
+    <a href="{{ route('user.add_cart', ['id' => $cheesecake->id])}}" class="link-product">
+      <div class="card">
+        <img src="{{ asset('assets/product/' . $cheesecake->product_image)}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ $cheesecake->product_name }}</h5>
+          <p class="card-text">Rp{{ number_format($cheesecake->price, 0, ',', '.')}}</p>
+        </div>
+      </div>
+    </a>
+  </div>
+  @endforeach
+</div>
+
+{{-- <h2 class="mt-3">Cheese Cakes</h2>
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <div class="col">
     <div class="card">
@@ -109,7 +130,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
 <div class="location-section" id="location">
     <h2 class="location-title">Store Location</h2>
@@ -129,5 +150,4 @@
       </p>
     </div>
 </div>
-
 @endsection

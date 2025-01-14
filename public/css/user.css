@@ -85,6 +85,8 @@
     background-color: #000;
 }
 
+/* styling content */
+
 .button-menu .btn {
     margin-top: 40px;
     font-weight: bold;
@@ -106,6 +108,10 @@
 .button-menu .btn3 {
     background-color: #f0dad5;
     color: #ac4c5d;
+}
+
+.link-product {
+    text-decoration: none;
 }
 
 /* styling location */
@@ -153,4 +159,32 @@
     font-size: 1rem;
     line-height: 1.5;
     margin: 0 auto;
+}
+
+.text-top {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    color: #842029;
+}
+
+.order-list {
+    margin-top: 50px;
+    padding: 15px;
+    width: 100%;
+}
+.table th {
+    background-color: #f8d7da;
+    color: #842029;
+}
+.badge-success {
+    color: #198754;
+}
+.badge-danger {
+    color: #dc3545;
+}
+.badge-warning {
+    color: #ffc107;
+}
+.badge-info {
+    color: #0dcaf0;
 }
