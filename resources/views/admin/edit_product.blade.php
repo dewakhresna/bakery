@@ -12,9 +12,9 @@
     }
     .form-title {
       margin-top: 10px;
-      /* text-align: center; */
+      text-align: center;
       gap: 5px;
-      /* justify-content: center; */
+      justify-content: center;
       display: flex;
       font-size: 24px;
       font-weight: bold;
@@ -46,7 +46,6 @@
 
 <div class="form-title">
   <p class="tittle">Edit Product</p>
-  <button type="button" class="btn-close" aria-label="Close"></button>
 </div>
 
 <div class="form-container">
@@ -74,7 +73,7 @@
       <div class="image-preview" id="imagePreview">
         <span><img src="{{ asset('assets/product/' . $product->product_image) }}" alt="No Image"></span>
       </div>
-      <input type="file" class="form-control" id="image" accept="image/*" name="product_image" required>
+      <input type="file" class="form-control" id="image" accept="image/*" name="product_image">
     </div>
     <div class="mb-3">
       <label for="stock" class="form-label">Stock:</label>

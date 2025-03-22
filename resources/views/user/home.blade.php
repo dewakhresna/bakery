@@ -1,7 +1,7 @@
 @extends('layouts.user')
 
 @section('content')
-<section id="beranda">
+<section id="home">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -32,11 +32,15 @@
   <a href="#" class="btn btn3" role="button" data-bs-toggle="button">Cheesecakes</a>
 </div>
 
-<h2 class="mt-3">Cheese Cakes</h2>
+<h2 class="mt-3">Cupcakes</h2>
 <div class="row row-cols-1 row-cols-md-3 g-4">
   @foreach ($cupcakes as $cupcake)
   <div class="col">
-    <a href="{{ route('user.add_cart', ['id' => $cupcake->id])}}" class="link-product">
+    @if(Auth::check())
+      <a href="{{ route('user.add_cart', ['id' => $cupcake->id])}}" class="link-product">
+    @else
+      <a href="#signin" class="link-product" data-bs-toggle="modal" data-bs-target="#signIn">
+    @endif
       <div class="card">
         <img src="{{ asset('assets/product/' . $cupcake->product_image)}}" class="card-img-top" alt="...">
         <div class="card-body">
@@ -53,7 +57,11 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
   @foreach ($cookies as $cookie)
   <div class="col">
-    <a href="{{ route('user.add_cart', ['id' => $cookie->id])}}" class="link-product">
+    @if(Auth::check())
+      <a href="{{ route('user.add_cart', ['id' => $cookie->id])}}" class="link-product">
+    @else
+      <a href="#signin" class="link-product" data-bs-toggle="modal" data-bs-target="#signIn">
+    @endif
       <div class="card">
         <img src="{{ asset('assets/product/' . $cookie->product_image)}}" class="card-img-top" alt="...">
         <div class="card-body">
@@ -70,7 +78,11 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
   @foreach ($cheesecakes as $cheesecake)
   <div class="col">
-    <a href="{{ route('user.add_cart', ['id' => $cheesecake->id])}}" class="link-product">
+    @if(Auth::check())
+      <a href="{{ route('user.add_cart', ['id' => $cheesecake->id])}}" class="link-product">
+    @else
+      <a href="#signin" class="link-product" data-bs-toggle="modal" data-bs-target="#signIn">
+    @endif
       <div class="card">
         <img src="{{ asset('assets/product/' . $cheesecake->product_image)}}" class="card-img-top" alt="...">
         <div class="card-body">
@@ -82,55 +94,6 @@
   </div>
   @endforeach
 </div>
-
-{{-- <h2 class="mt-3">Cheese Cakes</h2>
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card">
-      <img src="{{ asset('assets/product/pistachio cheesecake.png')}}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="{{ asset('assets/product/pistachio cheesecake.png')}}" class="card-img-top" alt="...">
-      <div class="card-body" style="">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="{{ asset('assets/product/pistachio cheesecake.png')}}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="{{ asset('assets/product/pistachio cheesecake.png')}}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="{{ asset('assets/product/pistachio cheesecake.png')}}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-</div> --}}
 
 <div class="location-section" id="location">
     <h2 class="location-title">Store Location</h2>

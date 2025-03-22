@@ -172,6 +172,12 @@
     padding: 15px;
     width: 100%;
 }
+
+.btn-action {
+    text-decoration: none;
+    color: black;
+}
+
 .table th {
     background-color: #f8d7da;
     color: #842029;

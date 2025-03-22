@@ -18,8 +18,8 @@
                 <td>Rp{{ number_format($product->price, 0, ',', '.') }}</td>
                 <td>{{ $product->stock }}</td>
                 <td>
-                    <a href="{{ route('admin.edit_product', ['id' => $product->id]) }}"><button>Edit</button></a>
-                    <a href="#"><button>Delete</button></a>
+                    <button class="btn btn-primary"><a href="{{ route('admin.edit_product', ['id' => $product->id]) }}" class="btn-action">Edit</a></button>
+                    <button class="btn btn-danger"><a href="{{ route('admin.delete_product', ['id' => $product->id]) }}" class="btn-action">Delete</a></button>
                 </td>
             </tr>
         @endforeach

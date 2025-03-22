@@ -1,18 +1,23 @@
 <nav class="navbar">
-    <div class="nav-left">
-        <a href="#home" class="nav-link">HOME</a>
-        <a href="#location" class="nav-link">LOCATION</a>
-    </div>
+    @if(Auth::check())
+        <div class="nav-left">
+            <a href="{{ route('user.user_home') }}#home" class="nav-link">HOME</a>
+            <a href="{{ route('user.user_home') }}#location" class="nav-link">LOCATION</a>
+        </div>
+    @else
+        <div class="nav-left">
+            <a href="{{ route('home') }}#home" class="nav-link">HOME</a>
+            <a href="{{ route('home') }}#location" class="nav-link">LOCATION</a>
+        </div>
+    @endif
     <div class="nav-center">
         <img src="{{ asset('assets/logo/logo_bakery.png') }}" alt="Bakery Logo" class="logo">
     </div>
     @if(Auth::check())
         <div class="nav-rights">
             <a href="{{ route('user.order_status') }}" class="nav-link">ORDER STATUS</a>
-            <a href="#" class="nav-link">{{ $user->username }}</a>
-            <a href="{{ route('logout') }}" class="nav-link">LOGOUT</a>
             <a href="{{ route('user.cart') }}" class="nav-link"><img src="{{ asset('assets/logo/cart.png') }}" alt="Cart Logo" class="logo-right"></a>
-            <a href="#" class="nav-link"><img src="{{ asset('assets/logo/profile.png') }}" alt="Profile Logo" class="logo-right"></a>
+            <a href="{{ route('user.profile') }}" class="nav-link"><img src="{{ asset('assets/logo/profile.png') }}" alt="Profile Logo" class="logo-right"></a>
         </div>
     @else
         <div class="nav-right">

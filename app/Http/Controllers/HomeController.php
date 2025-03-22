@@ -29,6 +29,50 @@ class HomeController extends Controller
         return view('user.home', compact('user', 'products', 'cupcakes', 'cookies', 'cheesecakes'));
     }
 
+    public function profile()
+    {
+        $user = Auth::user();
+        return view('user.profile', compact('user'));
+    }
+
+    public function edit_profile()
+    {
+        $user = Auth::user();
+        return view('user.edit_profile', compact('user'));
+    }
+
+    public function update_profile(Request $request, $id)
+    {
+        $request->validate([
+            'username' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'address' => 'required',
+            'detailed_address' => 'required',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+    
+        $data_user['username'] = $request->username;
+        $data_user['email'] = $request->email;
+        $data_user['phone'] = $request->phone;
+    
+        if ($request->hasFile('photo')) {
+            $image = $request->file('photo');
+            $name = date('Y-m-d_H-i-s') . '_' . $image->getClientOriginalName();
+            $destinationPath = public_path('/assets/profile_picture');
+            $image->move($destinationPath, $name);
+            $data_user['photo'] = $name; // Set nama file baru
+        } 
+    
+        $data_user['address'] = $request->address;
+        $data_user['detailed_address'] = $request->detailed_address;
+    
+        $user = User::find($id);
+        $user->update($data_user);
+    
+        return redirect()->route('user.user_home');
+    }
+
     public function addCart($id)
     {
         $product = Product::find($id);
@@ -146,6 +190,12 @@ class HomeController extends Controller
             // Jika data tidak ditemukan, tampilkan error
             return redirect()->back()->withErrors(['error' => 'Pesanan tidak ditemukan.']);
         }
+    }
+
+    public function delete_payment($order_id)
+    {
+        Sale::where('order_id', $order_id)->delete();
+        return redirect()->route('user.user_home');
     }
 
     public function order_status()

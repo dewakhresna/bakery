@@ -46,13 +46,13 @@
     font-size: 1.2rem;
   }
   .btn-add-to-cart {
-    background-color: #6f4e37;
+    background-color: #7a4a58;
     color: white;
     font-weight: bold;
     text-transform: uppercase;
   }
   .btn-add-to-cart:hover {
-    background-color: #5a3b2c;
+    background-color: #5e3845;
   }
   </style>
 </head>

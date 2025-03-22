@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout Design</title>
+  <title>Cart</title>
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
     rel="stylesheet"
@@ -111,7 +111,6 @@
   <div class="checkout-card">
     <div class="checkout-header">
       <span>Check Out</span>
-      <button>&times;</button>
     </div>
     <form method="POST" id="checkOutForm" action="{{ route('user.checkout_process')}}">
       @csrf

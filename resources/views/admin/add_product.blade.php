@@ -10,11 +10,14 @@
       padding: 30px;
       background-color: #fff;
     }
+    .tittle {
+      margin-top: 10px;
+    }
     .form-title {
       margin-top: 10px;
-      /* text-align: center; */
+      text-align: center;
       gap: 5px;
-      /* justify-content: center; */
+      justify-content: center;
       display: flex;
       font-size: 24px;
       font-weight: bold;
@@ -46,7 +49,6 @@
 
 <div class="form-title">
   <p class="tittle">New Product</p>
-  <button type="button" class="btn-close" aria-label="Close"></button>
 </div>
 
 <div class="form-container">
